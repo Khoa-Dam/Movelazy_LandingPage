@@ -3,9 +3,18 @@
 import { useState } from "react";
 import { motion } from 'framer-motion';
 
-const TabButton = ({ tab, isActive, onClick }) => (
+interface TabButtonProps {
+  tab: string; // Dữ liệu của tab
+  isActive: boolean; // Trạng thái của tab
+  onClick: () => void; // Hàm được gọi khi nhấn nút
+}
+const TabButton: React.FC<TabButtonProps> = ({ tab, isActive, onClick }) => (
   <motion.button
-    className={`pb-2 text-lg font-medium transition-all ${isActive ? "text-yellow-400 border-b-2 border-yellow-400" : "text-gray-400"} hover:text-white`}
+    className={`pb-2 text-lg font-medium transition-all ${
+      isActive
+        ? "text-yellow-400 border-b-2 border-yellow-400"
+        : "text-gray-400"
+    } hover:text-white`}
     onClick={onClick}
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
