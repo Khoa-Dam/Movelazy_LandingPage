@@ -24,19 +24,19 @@ const TabButton: React.FC<TabButtonProps> = ({ tab, isActive, onClick }) => (
 );
 
 const Homepage = () => {
-  const [activeTab, setActiveTab] = useState("Code Editor");
-  const [imageSrc, setImageSrc] = useState("/path/to/your/image.png");
+  const [activeTab, setActiveTab] = useState<string>("Code Editor");
+const [imageSrc, setImageSrc] = useState<string>("/path/to/your/image.png");
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-    if (tab === "Compile") {
-      setImageSrc("/Compile.png");
-    } else if (tab === "Tester") {
-      setImageSrc("/Tester.png");
-    } else if (tab === "Deploy") {
-      setImageSrc("/Deploy.png");
-    }
-  };
+  const handleTabChange = (tab: string): void => {
+  setActiveTab(tab);
+  if (tab === "Compile") {
+    setImageSrc("/Compile.png");
+  } else if (tab === "Tester") {
+    setImageSrc("/Tester.png");
+  } else if (tab === "Deploy") {
+    setImageSrc("/Deploy.png");
+  }
+};
 
   return (
     <main className="flex flex-col items-center p-6 bg-slate-950">
